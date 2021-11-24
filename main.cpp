@@ -21,5 +21,5 @@ int main()
     const double z = 0.7;
     cout << "X = " << x << " Y = " << y << " Z = " << z << endl;
     printf("Otvet:");
-    cout << "a = " << CalculateA(x, y, z) << "b = " << CalculateB(x, y, z) << endl;
+    cout << "a = " << CalculateA(x, y, z) << "b = " << CalculateB(x, y, z) << endl
 }
