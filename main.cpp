@@ -3,23 +3,37 @@
 
 using namespace std;
 
-double CalculateA(double x, double y, double z) {
-    double a = (x * x * (x + 1)) / (y - pow(sin(x + z), 2));
-    return a;
-}
+static void exersise(double x)
+{
+    double y;
+    y = sqrt(1 - x) - cos(sqrt(1 - x));
+    printf("x = %f", x);
+    printf("  ");
+    printf("y = %f", y);
+    printf("\n");
 
-double CalculateB(double x, double y, double z) {
-    double b = (sqrt((x * y) / z)) + pow(cos(pow(x + y, 2)), 2);
-    return b;
 }
 
 int main()
 {
     setlocale(0, "");
-    const double x = 0.5;
-    const double y = 0.05;
-    const double z = 0.7;
-    cout << "X = " << x << " Y = " << y << " Z = " << z << endl;
-    printf("Otvet:");
-    cout << "a = " << CalculateA(x, y, z) << "b = " << CalculateB(x, y, z) << endl;
+    double x = 0;
+    double x2 = 1;
+    double stap = 0.1;
+    while (x != (x2 + stap))
+    {
+
+        if (x <= x2)
+        {
+            exersise(x);
+            x = x + stap;
+            if (x >= x2)
+            {
+                x = x2;
+                exersise(x); break;
+            }
+        }
+
+
+    }
 }
