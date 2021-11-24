@@ -1,25 +1,30 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
-double CalculateA(double x, double y, double z) {
-    double a = (x * x * (x + 1)) / (y - pow(sin(x + z), 2));
-    return a;
-}
-
-double CalculateB(double x, double y, double z) {
-    double b = (sqrt((x * y) / z)) + pow(cos(pow(x + y, 2)), 2);
-    return b;
+float Resistance(int a, int b) { //R = ρ · L/S
+    const float ro = 0.0295;
+    float resistance = ro * (a / b);
+    return resistance;
 }
 
 int main()
 {
     setlocale(0, "");
-    const double x = 0.5;
-    const double y = 0.05;
-    const double z = 0.7;
-    cout << "X = " << x << " Y = " << y << " Z = " << z << endl;
-    printf("Otvet:");
-    cout << "a = " << CalculateA(x, y, z) << "b = " << CalculateB(x, y, z) << endl;
+    int l;
+    int s;
+    cout << "Введите длину провода в метрах:" << endl;
+    cin >> l;
+    cout << "Введите площадь поперечного сечения провода в милиметрах:" << endl;
+    cin >> s;
+    if (!cin)
+    {
+        cout << "Input Error. Enter THE NUMBER." << endl;
+        cin.clear();
+        fflush(stdin);
+    }
+    else
+    {
+        cout << Resistance(l, s) << endl;
+    }
 }
